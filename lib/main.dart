@@ -1,115 +1,99 @@
+import 'package:dr_scan_graduation_project/presentation/auth/forgetpassword_page.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/login_page.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/password_changed.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/registration_intro_page.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/reset_password_page.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/send_email_page.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/send_message_page.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/send_code_email.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/send_code_message.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/signup_page.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/skip_registration_page.dart';
+import 'package:dr_scan_graduation_project/presentation/home/diagnose/body_page.dart';
+import 'package:dr_scan_graduation_project/presentation/home/diagnose/bodyitem_page.dart';
+import 'package:dr_scan_graduation_project/presentation/home/diagnose/diagnosis_result_page.dart';
+import 'package:dr_scan_graduation_project/presentation/home/diagnose/loading_page.dart';
+import 'package:dr_scan_graduation_project/presentation/home/diagnose/medical_diagnosis_page.dart';
+import 'package:dr_scan_graduation_project/presentation/history/saved_page.dart';
+import 'package:dr_scan_graduation_project/presentation/home/diagnose/questions_page.dart';
+import 'package:dr_scan_graduation_project/presentation/home/diagnose/symptom_page.dart';
+import 'package:dr_scan_graduation_project/presentation/home/home_page.dart';
+import 'package:dr_scan_graduation_project/presentation/home/setting/accountinfo_page.dart';
+import 'package:dr_scan_graduation_project/presentation/home/setting/privacy_page.dart';
+import 'package:dr_scan_graduation_project/presentation/home/setting/setting_page.dart';
+import 'package:dr_scan_graduation_project/presentation/onboarding/description_pages.dart';
+import 'package:dr_scan_graduation_project/presentation/onboarding/splash_page.dart';
+import 'package:dr_scan_graduation_project/presentation/test/madical_analysis_page.dart';
+import 'package:dr_scan_graduation_project/presentation/test/test_result_page.dart';
+import 'package:dr_scan_graduation_project/presentation/test_view.dart';
+import 'package:dr_scan_graduation_project/utils/firebase_options.dart';
+import 'package:dr_scan_graduation_project/utils/widgets/nav_bar.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const DrScan());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+class DrScan extends StatelessWidget {
+  const DrScan({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (BuildContext context, Widget? child) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          routes: {
+            RegistrationIntroPage.id: (context) =>
+                const RegistrationIntroPage(),
+            SplashPage.id: (context) => const SplashPage(),
+            LoginPage.id: (context) => const LoginPage(),
+            SignupPage.id: (context) => const SignupPage(),
+            ForgetPasswordPage.id: (context) => const ForgetPasswordPage(),
+            SkipRegistrationPage.id: (context) => const SkipRegistrationPage(),
+            DescriptionPages.id: (context) => DescriptionPages(),
+            ResetPasswordPage.id: (context) => const ResetPasswordPage(),
+            PasswordChangedPage.id: (context) => const PasswordChangedPage(),
+            SendMessagePage.id: (context) => const SendMessagePage(),
+            SendCodeEmail.id: (context) => const SendCodeEmail(),
+            SendCodeMessage.id: (context) => const SendCodeMessage(),
+            AccountInfoPage.id: (context) => const AccountInfoPage(),
+            SettingPage.id: (context) => const SettingPage(),
+            PrivacyPage.id: (context) => const PrivacyPage(),
+            HomePage.id: (context) => const HomePage(),
+            NavBar.id: (context) => NavBar(
+                  istabbed: false,
+                  istabbed2: false,
+                  istabbed1: false,
+                  istabbed3: false,
+                ),
+            MedicalDiagnosisPage.id: (context) => const MedicalDiagnosisPage(),
+            BodyPage.id: (context) => const BodyPage(),
+            SymptomPage.id: (context) => const SymptomPage(),
+            BodyItemPage.id: (context) => const BodyItemPage(),
+            QuestionsPage.id: (context) => const QuestionsPage(),
+            LoadingPage.id: (context) => const LoadingPage(),
+            DiagnosisResultPage.id: (context) => const DiagnosisResultPage(),
+            MedicalAnalysisPage.id: (context) => const MedicalAnalysisPage(),
+            SendEmailPage.id: (context) => const SendEmailPage(),
+            TestResultPage.id: (context) => const TestResultPage(),
+            SavedPage.id: (context) => const SavedPage(),
+            TestView.id: (context) => TestView(),
+          },
+          // initialRoute: SplashPage.id,
+          initialRoute: TestView.id,
+        );
+      },
     );
   }
 }
