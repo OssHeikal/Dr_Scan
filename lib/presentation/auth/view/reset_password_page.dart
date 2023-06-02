@@ -1,9 +1,9 @@
-import 'package:dr_scan_graduation_project/presentation/auth/password_changed.dart';
-import 'package:dr_scan_graduation_project/utils/constants.dart';
-import 'package:dr_scan_graduation_project/utils/widgets/custom_text_formfield.dart';
 import 'package:flutter/material.dart';
 
-import '../../utils/widgets/custom_button.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/view/password_changed.dart';
+import 'package:dr_scan_graduation_project/utils/constants.dart';
+import 'package:dr_scan_graduation_project/utils/widgets/custom_button.dart';
+import 'package:dr_scan_graduation_project/utils/widgets/custom_text_formfield.dart';
 
 class ResetPasswordPage extends StatelessWidget {
   const ResetPasswordPage({Key? key}) : super(key: key);

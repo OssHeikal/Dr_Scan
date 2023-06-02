@@ -1,9 +1,11 @@
-import 'package:dr_scan_graduation_project/presentation/auth/send_email_page.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/send_message_page.dart';
+
 import 'package:dr_scan_graduation_project/utils/constants.dart';
 import 'package:dr_scan_graduation_project/utils/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'send_email_page.dart';
+import 'send_message_page.dart';
 
 class ForgetPasswordPage extends StatelessWidget {
   const ForgetPasswordPage({Key? key}) : super(key: key);

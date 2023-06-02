@@ -16,3 +16,5 @@ const String FORBIDDEN_ERROR =
 const String NOT_FOUND_ERROR = "Oops! The requested resource was not found.";
 const String INVALID_REQUEST_ERROR =
     "Oops! Invalid request. Please provide valid data.";
+
+const String UNEXPECTED_ERROR = "Oops! An unexpected error occurred.";

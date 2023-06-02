@@ -1,4 +1,4 @@
-import 'package:dr_scan_graduation_project/presentation/auth/login_page.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/view/login_page.dart';
 import 'package:dr_scan_graduation_project/presentation/home/home_page.dart';
 import 'package:dr_scan_graduation_project/utils/constants.dart';
 import 'package:dr_scan_graduation_project/utils/widgets/custom_button.dart';

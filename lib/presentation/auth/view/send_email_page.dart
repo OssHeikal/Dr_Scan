@@ -1,14 +1,16 @@
-import 'package:dr_scan_graduation_project/presentation/auth/login_page.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/send_code_message.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:dr_scan_graduation_project/presentation/auth/view/login_page.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/view/send_code_email.dart';
 import 'package:dr_scan_graduation_project/utils/constants.dart';
 import 'package:dr_scan_graduation_project/utils/widgets/custom_button.dart';
 import 'package:dr_scan_graduation_project/utils/widgets/custom_text_field.dart';
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SendMessagePage extends StatelessWidget {
-  const SendMessagePage({Key? key}) : super(key: key);
-  static String id = 'SendMessagePage';
+class SendEmailPage extends StatelessWidget {
+  const SendEmailPage({Key? key}) : super(key: key);
+  static String id = 'SendEmailPage';
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class SendMessagePage extends StatelessWidget {
       backgroundColor: kWhiteColor,
       body: Stack(
         children: [
-          Positioned(top: 10, child: Image.asset('assets/images/Union.png')),
+          Positioned(child: Image.asset('assets/images/Union.png')),
           ListView(
             children: [
               const SizedBox(
@@ -51,8 +53,8 @@ class SendMessagePage extends StatelessWidget {
               ),
               Center(
                 child: Text(
-                  """      Don’t worry! It happens. Please enter the 
-   phone number associated with your account. """,
+                  """Don’t worry! It happens. Please enter the 
+   email associated with your account. """,
                   style: TextStyle(
                       fontSize: 15,
                       color: kBlackColor.withOpacity(.7),
@@ -63,45 +65,26 @@ class SendMessagePage extends StatelessWidget {
               const SizedBox(
                 height: 45,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 21),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    CustomTextField(
-                      keyboard: TextInputType.number,
-                      abovetext: 'Country code',
-                      hintText: '+20',
-                      width: 122,
-                      padding: 21,
-                    ),
-                    const SizedBox(
-                      width: 11,
-                    ),
-                    CustomTextField(
-                      keyboard: TextInputType.number,
-                      padding: 106,
-                      abovetext: 'Mobile number',
-                      hintText: '1094078360',
-                      width: 217,
-                    )
-                  ],
-                ),
+              CustomTextField(
+                abovetext: 'Email address',
+                hintText: 'ex.Email@gmail.com',
+                width: 350,
+                padding: 250,
               ),
               const SizedBox(
                 height: 40,
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, SendCodeMessage.id);
+                  Navigator.pushNamed(context, SendCodeEmail.id);
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 35),
                   child: CustomButton(
                     text: 'Send code',
-                    size: 16,
-                    width: 310,
-                    height: 47,
+                    size: 16.sp,
+                    width: 310.w,
+                    height: 47.h,
                     color: kPrimaryColor,
                     borderRadius: 10,
                     textColor: kWhiteColor,
@@ -110,8 +93,8 @@ class SendMessagePage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 125,
+              SizedBox(
+                height: 110.h,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 90),
@@ -121,7 +104,7 @@ class SendMessagePage extends StatelessWidget {
                       'Remember password? ',
                       style: TextStyle(
                           fontWeight: FontWeight.w400,
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontFamily: kRoboto,
                           color: kBlackColor.withOpacity(.7)),
                     ),
@@ -129,13 +112,14 @@ class SendMessagePage extends StatelessWidget {
                       onTap: () {
                         Navigator.pushNamed(context, LoginPage.id);
                       },
-                      child: const Text(
-                        ' Log in',
+                      child: Text(
+                        'Log in',
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontFamily: kRoboto,
-                          color: kBlackColor,
+                          color: kBlackColor.withOpacity(.7),
+                          decoration: TextDecoration.underline,
                         ),
                       ),
                     )

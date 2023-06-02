@@ -1,9 +1,9 @@
-
-import 'package:dr_scan_graduation_project/presentation/auth/registration_intro_page.dart';
-import 'package:dr_scan_graduation_project/utils/constants.dart';
-import 'package:dr_scan_graduation_project/utils/widgets/custom_button.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/view/registration_intro_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:dr_scan_graduation_project/utils/constants.dart';
+import 'package:dr_scan_graduation_project/utils/widgets/custom_button.dart';
 
 class DescriptionWidget extends StatelessWidget {
   DescriptionWidget(

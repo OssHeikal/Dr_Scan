@@ -1,25 +1,19 @@
-import 'dart:io';
-import 'dart:async';
+abstract class Failure {}
 
-import 'package:dr_scan_graduation_project/utils/strings/error_messages.dart';
+class NetworkFailure extends Failure {}
 
-class Failure {
-  final String message;
+class ServerFailure extends Failure {}
 
-  Failure(this.message);
+class CacheFailure extends Failure {}
 
-  factory Failure.fromException(dynamic error) {
-    const defaultErrorMessage = UNKNOWN_ERROR;
-    final errorMessages = {
-      SocketException: NETWORK_ERROR,
-      TimeoutException: TIMEOUT_ERROR,
-      FormatException: INVALID_RESPONSE_FORMAT,
-      HttpException: SERVER_ERROR,
-      HandshakeException: SERVER_ERROR,
-    };
+class UnexpectedFailure extends Failure {}
 
-    final String errorMessage =
-        errorMessages[error.runtimeType] ?? defaultErrorMessage;
-    return Failure(errorMessage);
-  }
-}
+class InvalidInputFailure extends Failure {}
+
+class BadRequestFailure extends Failure {}
+
+class NotFoundFailure extends Failure {}
+
+class UnauthorizedFailure extends Failure {}
+
+class ForbiddenFailure extends Failure {}

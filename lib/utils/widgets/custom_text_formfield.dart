@@ -2,22 +2,25 @@ import 'package:dr_scan_graduation_project/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  CustomTextFormField(
-      {super.key,
-      this.hintText,
-      this.onChanged,
-      required this.suffixIcon,
-      required this.abovetext,
-      required this.width,
-      required this.padding,
-      this.color});
-  String? hintText;
-  Widget suffixIcon;
-  Function(String)? onChanged;
-  String abovetext;
-  double width;
-  double padding;
-  Color? color;
+  const CustomTextFormField({
+    super.key,
+    this.color,
+    this.hintText,
+    this.onChanged,
+    this.controller,
+    required this.width,
+    required this.padding,
+    required this.abovetext,
+    required this.suffixIcon,
+  });
+  final Color? color;
+  final double width;
+  final double padding;
+  final String abovetext;
+  final String? hintText;
+  final Widget suffixIcon;
+  final Function(String)? onChanged;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +40,7 @@ class CustomTextFormField extends StatelessWidget {
         SizedBox(
           width: width,
           child: TextFormField(
+            controller: controller,
             cursorColor: const Color(0xff5F5F5F),
             validator: (data) {
               if (data!.isEmpty) {

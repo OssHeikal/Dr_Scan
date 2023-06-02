@@ -1,16 +1,16 @@
 import 'dart:ui';
 
-import 'package:dr_scan_graduation_project/presentation/auth/login_page.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/signup_page.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/skip_registration_page.dart';
-import 'package:dr_scan_graduation_project/utils/widgets/custom_button.dart';
-import 'package:dr_scan_graduation_project/utils/widgets/customicon_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:text_divider/text_divider.dart';
 
+import 'package:dr_scan_graduation_project/presentation/auth/view/login_page.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/view/signup_page.dart';
+import 'package:dr_scan_graduation_project/presentation/auth/view/skip_registration_page.dart';
 import 'package:dr_scan_graduation_project/utils/constants.dart';
+import 'package:dr_scan_graduation_project/utils/widgets/custom_button.dart';
+import 'package:dr_scan_graduation_project/utils/widgets/customicon_button.dart';
 
 class RegistrationIntroPage extends StatefulWidget {
   const RegistrationIntroPage({Key? key}) : super(key: key);

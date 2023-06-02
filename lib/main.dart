@@ -1,37 +1,39 @@
-import 'package:dr_scan_graduation_project/presentation/auth/forgetpassword_page.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/login_page.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/password_changed.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/registration_intro_page.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/reset_password_page.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/send_email_page.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/send_message_page.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/send_code_email.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/send_code_message.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/signup_page.dart';
-import 'package:dr_scan_graduation_project/presentation/auth/skip_registration_page.dart';
-import 'package:dr_scan_graduation_project/presentation/home/diagnose/body_page.dart';
-import 'package:dr_scan_graduation_project/presentation/home/diagnose/bodyitem_page.dart';
-import 'package:dr_scan_graduation_project/presentation/home/diagnose/diagnosis_result_page.dart';
-import 'package:dr_scan_graduation_project/presentation/home/diagnose/loading_page.dart';
-import 'package:dr_scan_graduation_project/presentation/home/diagnose/medical_diagnosis_page.dart';
-import 'package:dr_scan_graduation_project/presentation/history/saved_page.dart';
-import 'package:dr_scan_graduation_project/presentation/home/diagnose/questions_page.dart';
-import 'package:dr_scan_graduation_project/presentation/home/diagnose/symptom_page.dart';
-import 'package:dr_scan_graduation_project/presentation/home/home_page.dart';
-import 'package:dr_scan_graduation_project/presentation/home/setting/accountinfo_page.dart';
-import 'package:dr_scan_graduation_project/presentation/home/setting/privacy_page.dart';
-import 'package:dr_scan_graduation_project/presentation/home/setting/setting_page.dart';
-import 'package:dr_scan_graduation_project/presentation/onboarding/description_pages.dart';
-import 'package:dr_scan_graduation_project/presentation/onboarding/splash_page.dart';
-import 'package:dr_scan_graduation_project/presentation/test/madical_analysis_page.dart';
-import 'package:dr_scan_graduation_project/presentation/test/test_result_page.dart';
-import 'package:dr_scan_graduation_project/presentation/test_view.dart';
-import 'package:dr_scan_graduation_project/utils/firebase_options.dart';
-import 'package:dr_scan_graduation_project/utils/widgets/nav_bar.dart';
+import 'package:dr_scan_graduation_project/utils/binding/binding.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
+import 'presentation/auth/view/forgetpassword_page.dart';
+import 'presentation/auth/view/login_page.dart';
+import 'presentation/auth/view/password_changed.dart';
+import 'presentation/auth/view/registration_intro_page.dart';
+import 'presentation/auth/view/reset_password_page.dart';
+import 'presentation/auth/view/send_code_email.dart';
+import 'presentation/auth/view/send_code_message.dart';
+import 'presentation/auth/view/send_email_page.dart';
+import 'presentation/auth/view/send_message_page.dart';
+import 'presentation/auth/view/signup_page.dart';
+import 'presentation/auth/view/skip_registration_page.dart';
+import 'presentation/history/saved_page.dart';
+import 'presentation/home/diagnose/body_page.dart';
+import 'presentation/home/diagnose/bodyitem_page.dart';
+import 'presentation/home/diagnose/diagnosis_result_page.dart';
+import 'presentation/home/diagnose/loading_page.dart';
+import 'presentation/home/diagnose/medical_diagnosis_page.dart';
+import 'presentation/home/diagnose/questions_page.dart';
+import 'presentation/home/diagnose/symptom_page.dart';
+import 'presentation/home/home_page.dart';
+import 'presentation/home/setting/accountinfo_page.dart';
+import 'presentation/home/setting/privacy_page.dart';
+import 'presentation/home/setting/setting_page.dart';
+import 'presentation/onboarding/description_pages.dart';
+import 'presentation/onboarding/splash_page.dart';
+import 'presentation/test/madical_analysis_page.dart';
+import 'presentation/test/test_result_page.dart';
+import 'presentation/test_view.dart';
+import 'utils/firebase_options.dart';
+import 'utils/widgets/nav_bar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,6 +54,7 @@ class DrScan extends StatelessWidget {
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
         return GetMaterialApp(
+          initialBinding: Binding(),
           debugShowCheckedModeBanner: false,
           routes: {
             RegistrationIntroPage.id: (context) =>
@@ -91,7 +94,7 @@ class DrScan extends StatelessWidget {
             TestView.id: (context) => TestView(),
           },
           // initialRoute: SplashPage.id,
-          initialRoute: TestView.id,
+          initialRoute: LoginPage.id,
         );
       },
     );

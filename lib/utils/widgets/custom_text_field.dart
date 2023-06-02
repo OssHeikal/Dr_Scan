@@ -3,18 +3,21 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField(
-      {super.key,
-      required this.abovetext,
-      required this.hintText,
-      required this.width,
-      required this.padding,
-      this.keyboard});
-  String abovetext;
-  String hintText;
-  double width;
-  double padding;
-  TextInputType? keyboard;
+  const CustomTextField({
+    super.key,
+    required this.abovetext,
+    required this.hintText,
+    required this.width,
+    required this.padding,
+    this.controller,
+    this.keyboard,
+  });
+  final String abovetext;
+  final String hintText;
+  final double width;
+  final double padding;
+  final TextInputType? keyboard;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +35,7 @@ class CustomTextField extends StatelessWidget {
         SizedBox(
           width: width,
           child: TextField(
+            controller: controller,
             keyboardType: keyboard,
             cursorColor: const Color(0xff5F5F5F),
             decoration: InputDecoration(

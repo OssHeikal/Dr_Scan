@@ -1,8 +1,9 @@
-import 'package:dr_scan_graduation_project/presentation/auth/registration_intro_page.dart';
-import 'package:dr_scan_graduation_project/utils/widgets/description_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'package:dr_scan_graduation_project/presentation/auth/view/registration_intro_page.dart';
+import 'package:dr_scan_graduation_project/utils/widgets/description_widget.dart';
 
 class DescriptionPages extends StatelessWidget {
   DescriptionPages({Key? key}) : super(key: key);
